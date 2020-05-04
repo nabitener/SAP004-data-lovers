@@ -16,7 +16,7 @@
       </div>
       <nav class="navBar">
         <button>
-          <a href="index_1.html">Pagina inicial</a>
+          <a href="http://">Pagina inicial</a>
         </button>
         <button>
           <a href="http://">Pokedex</a>
@@ -24,35 +24,66 @@
       </nav>
     </section>
     <section> Filtrar
-      <label for="filtro">Tipo</label>
-      <input list="tipos" name="filtrar" id="filtro" class="filtrar-pokemon" />
-      <datalist id="tipos">
-        <option value="Grass"></option>
-        <option value="Poison"></option>
-        <option value="Fire"></option>
-        <option value="Flying"></option>
-        <option value="Water"></option>
-        <option value="Bug"></option>
-        <option value="Electric"></option>
-        <option value="Ground"></option>
-        <option value="Fighting"></option>
-        <option value="Psychic"></option>
-        <option value="Rock"></option>
-        <option value="Ice"></option>
-        <option value="Ghost"></option>
-        <option value="Dragon"></option>
-        <option value="Normal"></option>
-      </datalist>
+      <label>Grass
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Grass">
+      </label>
+      <label>Poison
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Poison">
+      </label>
+      <label>Fire
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Fire">
+      </label>
+      <label>Flying
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Flying">
+      </label>
+      <label>Water
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Water">
+      </label>
+      <label>Bug
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Bug">
+      </label> 
+      <label>Electric
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Electric">
+      </label>
+      <label>Ground
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Ground">
+      </label>
+      <label>Fighting
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Fighting">
+      </label>
+      <label>Psychic
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Psychic">
+      </label>
+      <label>Rock
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Rock">
+      </label>
+      <label>Ice
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Ice">
+      </label>
+      <label>Ghost
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Ghost">
+      </label>
+      <label>Dragon
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Dragon">
+      </label>
+      <label>Normal
+        <input type="radio" name="tipos" class="filtrar-escolha-tipo" value="Normal">
+      </label>
       <input type="button" value="Limpar filtro" id="botao-limpar" class="botao-limpar-filro">
-      <label><input type="text" name="buscar" id="campo-busca" placeholder="Digite o nome do Pokemon">Buscar</label>
-      <label for="campo-ordenacao-pokemon">Ordem</label>
-      <input list="ordenacao" class="campo-ordenacao" id="campo-ordenacao-pokemon" name="Ordem"/>
-      <datalist id="ordenacao">
-      <option value="Crescente"></option>
-      <option value="Decrescente"></option>
-      </datalist>
-      <input type="button" value="Limpar Ordem" class="limpar-ordem" id="limpar-ordem-pokemon">
-    </section>
+
+      <section>
+        <label><input type="text" name="buscar" id="campo-busca" placeholder="Digite o nome do Pokemon">Buscar</label>
+      </section>
+
+      <section>Ordem
+        <label>Crescente
+          <input type="radio" name="Crescente" class="campo-ordenacao" value="Crescente">
+        </label>
+        <label>Decrescente
+          <input type="radio" name="Decrescente" class="campo-ordenacao" value="Decrescente">
+        </label>
+        <input type="button" value="Limpar Ordem" class="limpar-ordem" id="limpar-ordem-pokemon">
+      </section>
   </header>
   <main id="pokemons" class="pokedex">
     <ul id="lista-pokemon" class="lista-pokedex"></ul>

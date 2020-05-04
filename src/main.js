@@ -7,29 +7,29 @@ let ul = document.querySelector("#lista-pokemon");
 
 card(arrayPokemon);
 
-let campoFiltro = document.querySelector(".filtrar-pokemon")
-campoFiltro.addEventListener("input", function filtrados(){
+let campoFiltro = document.querySelectorAll(".filtrar-escolha-tipo");
+campoFiltro.addEventListener("click", function(){
  card(filtrar(campoFiltro.value, arrayPokemon));
 });
   
-let botaoLimpar = document.querySelector("#botao-limpar");
-botaoLimpar.addEventListener("click", function limparFiltro(){
+let botaoLimparFiltro = document.querySelector("#botao-limpar");
+botaoLimparFiltro.addEventListener("click", function limparFiltro(){
   let campoFiltro = document.querySelector(".filtrar-pokemon");
-  campoFiltro.value="";
+  campoFiltro.checked=false;
   card(arrayPokemon);
 });
 
-let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
-campoOrdem.addEventListener("input", function(){
+let campoOrdem = document.querySelectorAll(".campo-ordenacao");
+campoOrdem.addEventListener("click", function(){
   card(ordemNomes(campoOrdem.value, arrayPokemon));
-})
+});
 
 let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
 botaoLimparOrdem.addEventListener("click", function limparOrdem(){
   let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
   campoOrdem.value="";
   card(arrayPokemon);
-})
+});
 
 
 let campoBusca = document.querySelector("#campo-busca");

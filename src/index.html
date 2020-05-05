@@ -49,12 +49,15 @@
           <input type="button" value="Limpar Ordem" class="limpar-ordem" id="limpar-ordem-pokemon">
           <label><input type="text" name="buscar" id="campo-busca" placeholder="Buscar"></label>
       </nav>
-  </header>
-
-  <main>
-    <section id="pokemons" class="pokedex">
-      <ul id="lista-pokemon" class="lista-pokedex"></ul>
-    </section>
+  <main id="pokemons" class="pokedex">
+    <div class="flip">
+    <div class="front">
+    <ul id="lista-pokemon" class="lista-pokedex"></ul>
+    </div>
+    <div class="back">
+     <ul id="lista-info" class="lista-info-pokedex"></ul> 
+    </div>
+  </div>
   </main>
 
   <footer class="rodape">

@@ -1,4 +1,4 @@
-import {filtrar, ordemNomes, buscarNome} from './data.js';
+import { filtrar, ordemNomes, buscarNome } from './data.js';
 import data from "./data/pokemon/pokemon.js";
 
 let arrayPokemon = data["pokemon"];
@@ -8,34 +8,34 @@ let ul = document.querySelector("#lista-pokemon");
 card(arrayPokemon);
 
 let campoFiltro = document.querySelector(".filtrar-pokemon")
-campoFiltro.addEventListener("input", function filtrados(){
- card(filtrar(campoFiltro.value, arrayPokemon));
+campoFiltro.addEventListener("input", function filtrados() {
+  card(filtrar(campoFiltro.value, arrayPokemon));
 });
-  
-let botaoLimpar = document.querySelector("#botao-limpar");
-botaoLimpar.addEventListener("click", function limparFiltro(){
+
+let botaoLimparFiltro = document.querySelector("#botao-limpar");
+botaoLimparFiltro.addEventListener("click", function limparFiltro() {
   let campoFiltro = document.querySelector(".filtrar-pokemon");
-  campoFiltro.value="";
+  campoFiltro.value = "";
   card(arrayPokemon);
 });
 
 let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
 campoOrdem.addEventListener("input", function(){
   card(ordemNomes(campoOrdem.value, arrayPokemon));
-})
+});
 
 let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
 botaoLimparOrdem.addEventListener("click", function limparOrdem(){
   let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
   campoOrdem.value="";
   card(arrayPokemon);
-})
+});
 
 
 let campoBusca = document.querySelector("#campo-busca");
-campoBusca.addEventListener("input", function Buscado(){
+campoBusca.addEventListener("input", function Buscado() {
   let campoBuscado = document.querySelector("#campo-busca").value;
-  campoBuscado = campoBuscado.substring(0,1).toUpperCase().concat(campoBuscado.substring(1));
+  campoBuscado = campoBuscado.substring(0, 1).toUpperCase().concat(campoBuscado.substring(1));
   card(buscarNome(campoBuscado, arrayPokemon));
 });
 

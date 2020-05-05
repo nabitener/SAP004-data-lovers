@@ -1,8 +1,8 @@
 import {filtrar, ordemNomes, buscarNome} from '../src/data.js';
 
 const testeFiltrar = [
-  {"type": ["Fire e Flying"]},
-  {"type": ["Grass e Poison"]},
+  {"type": ["Fire", "Flying"]},
+  {"type": ["Grass", "Poison"]},
   {"type": ["Fire"]}
 ]
 
@@ -12,7 +12,7 @@ describe('filtrar', () => {
   });
 
   it('filtrar', () => {
-    expect(filtrar('"type":"Fire"', testeFiltrar)).toStrictEqual([{"type": ["Fire e Flying"]}, {"type": ["Fire"]}]);
+    expect(filtrar("Fire", testeFiltrar)).toStrictEqual([{"type": ["Fire", "Flying"]}, {"type": ["Fire"]}]);
   });
 });
 
@@ -49,7 +49,7 @@ describe('buscarNome', () => {
   });
 
   it('buscarNome', () => {
-    expect(buscarNome('"name":"Blastoise"', testeBuscar)).toStrictEqual([{"name": "Blastoise"}]);
+    expect(buscarNome("Blastoise", testeBuscar)).toStrictEqual([{"name": "Blastoise"}]);
   });
 });
 

@@ -1,3 +1,4 @@
+
 .plano-fundo {
   margin: 0;
   padding: 0;
@@ -5,6 +6,12 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.container-logo{
+  display: flex;
+  width: 100%;
+  height: 200px;
 }
 
 .logotipo {
@@ -17,7 +24,6 @@
 .logo {
   width: 20%;
   padding-bottom: 1em;
-  padding-top: 1em;
 }
 
 .navBar {
@@ -27,18 +33,42 @@
   padding-top: 10px;
   padding-bottom: 10px;
   background: rgba(255, 255, 255, 0.3);
-  margin: 1em;
+  justify-content: flex-end;
+  width: 30%;
+  height: 30%;
+  padding-top: 20px;
+  padding-right: 15px;
+}
 
+.container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filtro{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .pokedex {
+  padding-top: 30px;
   width: 100%;
+  
   display: flex;
   justify-content: center;
 }
 
+.lista-pokedex:hover .lista-pokedex-link{
+  transform: rotateY(180deg);
+}  
+
 .lista-pokedex {
   width: 100%;
+  margin: 0em;
+  padding: 0em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -46,6 +76,7 @@
   justify-content: space-around;
   margin: 0;
   padding: 0;
+  perspective: 1000px;
 }
 
 .lista-img {
@@ -66,6 +97,8 @@
   justify-content: space-around;
   flex-direction: column;
   border-radius: 10px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
 }
 
 .lista-tipo {
@@ -75,7 +108,7 @@
   padding: 0.5em;
 }
 
-.rodape {
+.rodape{
   background-color: rgba(255, 255, 255, 0.3);
   color: white;
   font-weight: bolder;

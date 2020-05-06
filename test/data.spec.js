@@ -28,12 +28,12 @@ describe('ordemNomes', () => {
   });
 
   it('ordemNomes', () => {
-    expect(ordemNomes("Crescente", testeOrdem)).toStrictEqual([{"name": "Bulbasaur"}, {"name": "Charmeleon"}, {"name": "Squirtle"}]);
+    expect(ordemNomes("A - Z", testeOrdem)).toStrictEqual([{"name": "Bulbasaur"}, {"name": "Charmeleon"}, {"name": "Squirtle"}]);
   });
 });
 
 it('ordemNomes', () => {
-  expect(ordemNomes("Decrescente", testeOrdem)).toStrictEqual([{"name": "Squirtle"}, {"name": "Charmeleon"}, {"name": "Bulbasaur"}]);
+  expect(ordemNomes("Z - A", testeOrdem)).toStrictEqual([{"name": "Squirtle"}, {"name": "Charmeleon"}, {"name": "Bulbasaur"}]);
 });
 
 

@@ -1,8 +1,8 @@
 import { filtrar, ordemNomes, buscarNome } from './data.js';
 import data from "./data/pokemon/pokemon.js";
 
-let arrayPokemon = data["pokemon"];
-let ul = document.querySelector("#lista-pokemon");
+const arrayPokemon = data["pokemon"];
+const ul = document.querySelector("#lista-pokemon");
 
 
 card(arrayPokemon);
@@ -24,14 +24,6 @@ campoOrdem.addEventListener("input", function(){
   card(ordemNomes(campoOrdem.value, arrayPokemon));
 });
 
-let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
-botaoLimparOrdem.addEventListener("click", function limparOrdem(){
-  let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
-  campoOrdem.value="";
-  card(arrayPokemon);
-});
-
-
 let campoBusca = document.querySelector("#campo-busca");
 campoBusca.addEventListener("input", function Buscado() {
   let campoBuscado = document.querySelector("#campo-busca").value;
@@ -42,7 +34,7 @@ campoBusca.addEventListener("input", function Buscado() {
 
 
 function card(array) {
-  ul.innerHTML = "";
+  ul.innerHTML = " ";
   for (let i = 0; i < array.length; i++) {
     let dadoImagem = array[i].img;
     let dadoNome = array[i].name;
@@ -50,7 +42,7 @@ function card(array) {
 
     let li = document.createElement("li");
     li.classList.add("lista-pokedex-link");
-    li.textContent += dadoNome;
+    li.innerHTML += "<h4>" + dadoNome + "</h4>";
     ul.appendChild(li);
 
     let img = document.createElement("img");
@@ -60,8 +52,18 @@ function card(array) {
 
     let tipo = document.createElement("tipo");
     tipo.classList.add("lista-tipo");
-    tipo.textContent += dadoTipo.join(" e ");
     li.appendChild(tipo);
 
+    let tipoZero = document.createElement("tipo");
+    tipoZero.classList.add("lista-tipo-zero");
+    tipoZero.textContent = dadoTipo[0];
+    tipo.appendChild(tipoZero);
+
+    if(!dadoTipo[1] == 0){
+    let tipoUm = document.createElement("tipo");
+    tipoUm.classList.add("lista-tipo-um");
+    tipoUm.textContent = dadoTipo[1];
+    tipo.appendChild(tipoUm);
+    }
   }
 }

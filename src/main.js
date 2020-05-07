@@ -2,7 +2,6 @@ import { filtrar, ordemNomes, buscarNome } from './data.js';
 import data from "./data/pokemon/pokemon.js";
 
 const arrayPokemon = data["pokemon"];
-const ul = document.querySelector("#lista-pokemon");
 
 
 card(arrayPokemon);
@@ -24,6 +23,14 @@ campoOrdem.addEventListener("input", function(){
   card(ordemNomes(campoOrdem.value, arrayPokemon));
 });
 
+let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
+botaoLimparOrdem.addEventListener("click", function limparOrdem(){
+  let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
+  campoOrdem.value=" ";
+  card(arrayPokemon);
+});
+
+
 let campoBusca = document.querySelector("#campo-busca");
 campoBusca.addEventListener("input", function Buscado() {
   let campoBuscado = document.querySelector("#campo-busca").value;
@@ -34,12 +41,13 @@ campoBusca.addEventListener("input", function Buscado() {
 
 
 function card(array) {
-  ul.innerHTML = " ";
+  const ul = document.querySelector("#lista-pokemon"); 
+  ul.innerHTML = "";
   for (let i = 0; i < array.length; i++) {
     let dadoImagem = array[i].img;
     let dadoNome = array[i].name;
     let dadoTipo = array[i].type;
-
+   
     let li = document.createElement("li");
     li.classList.add("lista-pokedex-link");
     li.innerHTML += "<h4>" + dadoNome + "</h4>";
@@ -67,3 +75,4 @@ function card(array) {
     }
   }
 }
+

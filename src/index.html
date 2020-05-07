@@ -16,11 +16,10 @@
     <div class="logotipo">
       <img class="logo" src="./imagens/pokemon.png" alt="">
     </div>
-
-    <nav class="navBar">
+    <div class="navBar">
       <section class="espaco-filtro">
-        <label for="filtro" class="logo-filtro">Filtrar</label>
-        <input list="tipos" name="filtrar" id="filtro" class="filtrar-pokemon" placeholder="tipo"/>
+        <label for="filtro" class="logo-filtro"></label>
+        <input list="tipos" name="filtrar" id="filtro" class="filtrar-pokemon" placeholder="Filtrar Tipo"/>
         <datalist id="tipos">
           <option value="Grass"></option>
           <option value="Poison"></option>
@@ -41,28 +40,24 @@
         <input type="button" value="Limpar filtro" id="botao-limpar" class="botao-limpar-filtro">
       </section>
       <section class="espaco-ordem"> 
-        <label for="campo-ordenacao-pokemon"> Ordem </label>
-        <input list="ordenacao" class="campo-ordenacao" id="campo-ordenacao-pokemon" name="Ordem" />
+        <input list="ordenacao" class="campo-ordenacao" id="campo-ordenacao-pokemon" name="Ordem" placeholder="Ordem"/>
         <datalist id="ordenacao">
           <option value="A - Z"></option>
           <option value="Z - A"></option>
         </datalist>
+        <input type="button" value="Limpar Ordem" class="limpar-ordem" id="limpar-ordem-pokemon">
       </section>
       <section class="espaco-busca">  
-        <label><input type="text" name="buscar" id="campo-busca" class="campo-buscar-nome" placeholder="Buscar nome"></label>
+        <input type="text" name="buscar" id="campo-busca" class="campo-buscar-nome" placeholder="Buscar nome">
       </section>
-    </nav>
-
+    </div>
   </header>
   <main id="pokemons" class="pokedex">
     <ul id="lista-pokemon" class="lista-pokedex"></ul>
   </main>
-
   <footer class="rodape">
     By Carolina Moscheta & Nathalia Bitener
   </footer>
-
   <script src="main.js" type="module"></script>
 </body>
-
 </html>

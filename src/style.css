@@ -29,6 +29,7 @@
 .navBar {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
   background: rgba(255, 255, 255, 0.3);
@@ -44,22 +45,16 @@
 .espaco-filtro{
   width: 20%;
   flex-grow: 1;
-  align-self: center;
-}
-
-.espaco-ordem{
-  width: 20%;
-  flex-grow: 1;
-  align-self: end;
 }
 
 .filtrar-pokemon{
   border-radius: 5px;
   height: 30px;
+  width: 30%;
   text-align: center;
   font-size: 16px;
   margin: 0.5em;
-}
+} 
 
 .campo-ordenacao{
   border-radius: 5px;
@@ -73,7 +68,6 @@
   height: 30px;
   width: 20%;
   border-radius: 5px;
-  margin-right: 0.5em;
 }
 
 .limpar-ordem{
@@ -173,23 +167,6 @@
   text-align: center;
 }
 
-
-/*@media screen (max-width: 320px) {
-  .plano-fundo {
-    background-image: url(./imagens/fundo320x600.png);
-  }
-
-  .logo {
-    width: 40%
-  }
-
-  .lista-pokedex-link{
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-}*/
-
 @media screen and (max-width: 600px) {
   .plano-fundo {
     background-image: url(./imagens/fundo600x800.jpg);
@@ -207,18 +184,63 @@
   }
 
   .navBar{
-    display: flex;
-    flex-shrink: 1;
+   flex-direction: column;
+  }
+  
+  .espaco-busca{
     width: 100%;
+  }
+  .campo-buscar-nome{
+    width: 95%;
+    padding: 0.5em;
+    margin-left: 0.6em;
+  }
+  .espaco-filtro{
+    width: 100%;
+    padding: 0.5em;
+  }
+  .filtrar-pokemon{
+    width: 40%;
+  }
+  .botao-limpar-filtro{
+    width: 25%;
+  }
+  .espaco-ordem{
+    width: 100%;
+    padding: 0.5em;
+  }
+  .campo-ordenacao{
+    width: 60%;
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 600px) and (max-width: 1000px) {
   .plano-fundo {
     background-image: url(./imagens/fundo1278.jpg);
   }
-
   .logo {
-    width: 20%
+    width: 40%
+  }
+  .campo-buscar-nome{
+    width: 90%;
+  }
+  .filtrar-pokemon{
+    width: 30%;
+    margin-right: 0em;
+  }
+  
+  .botao-limpar-filtro{
+    width: 32%;
+  }
+  .espaco-ordem{
+    width: 25%;
+    margin-left: 0.5em;
+  }
+  .campo-ordenacao{
+    width: 50%;
+  }
+
+  .lista-pokedex-link{
+    width: 40%;
   }
 }

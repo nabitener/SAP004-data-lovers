@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   background: url(./imagens/fundo1278.jpg) no-repeat;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -29,9 +30,6 @@
 .navBar {
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
   background: rgba(255, 255, 255, 0.3);
@@ -39,27 +37,52 @@
 }
 
 .espaco-busca {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   order: -1;
-  width: 20%;
+  width: 40%;
   flex-grow: 1;
 }
 
+.campo-buscar-nome {
+  height: 30px;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0.5em;
+}
+
 .espaco-filtro {
-  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 40%;
   flex-grow: 1;
 }
 
 .filtrar-pokemon {
   border-radius: 5px;
   height: 30px;
-  width: 30%;
+  width: 40%;
   text-align: center;
   font-size: 16px;
   margin: 0.5em;
 }
 
+.espaco-ordem {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 30%;
+  flex-grow: 1;
+  margin: 0.5em;
+}
+
 .campo-ordenacao {
   border-radius: 5px;
+  width: 35%;
   height: 30px;
   text-align: center;
   font-size: 16px;
@@ -68,7 +91,7 @@
 
 .botao-limpar-filtro {
   height: 30px;
-  width: 20%;
+  width: 25%;
   border-radius: 5px;
 }
 
@@ -76,7 +99,6 @@
   height: 30px;
   width: 25%;
   border-radius: 5px;
-  margin-right: 0.5em;
 }
 
 .botao-limpar-filtro:hover {
@@ -89,14 +111,6 @@
   cursor: pointer;
   background-color: rgb(199, 199, 7);
   font-weight: bold;
-}
-
-.campo-buscar-nome {
-  height: 30px;
-  width: 70%;
-  text-align: center;
-  border-radius: 5px;
-  margin: 0.5em;
 }
 
 .pokedex {
@@ -177,7 +191,7 @@
   }
 
   .logo {
-    width: 40%
+    width: 40%;
   }
 
   .lista-pokedex-link {
@@ -192,35 +206,34 @@
   }
 
   .espaco-busca {
+    display: block;
     width: 100%;
   }
-
   .campo-buscar-nome {
     width: 95%;
-    padding: 0.5em;
-    margin-left: 0.6em;
+    margin-right: 0.5em;
   }
-
   .espaco-filtro {
     width: 100%;
-    padding: 0.5em;
   }
-
   .filtrar-pokemon {
-    width: 40%;
+    width: 60%;
   }
-
   .botao-limpar-filtro {
-    width: 25%;
+    width: 40%;
+    margin-right: 0.5em;
   }
-
   .espaco-ordem {
     width: 100%;
-    padding: 0.5em;
+    margin: 0em;
   }
 
   .campo-ordenacao {
     width: 60%;
+  }
+  .limpar-ordem{
+    width: 40%;
+    margin-right: 0.5em;
   }
 }
 
@@ -230,29 +243,45 @@
   }
 
   .logo {
-    width: 40%
+    width: 40%;
   }
 
+  .espaco-busca{
+    display: flex;
+    align-items: center;
+    width: 40%;
+  }
   .campo-buscar-nome {
-    width: 90%;
+    width: 100%;
+    margin: 0.2em;
   }
 
+  .espaco-filtro{
+    display: flex;
+    justify-content: center;
+  }
   .filtrar-pokemon {
-    width: 30%;
-    margin-right: 0em;
+    width: 60%;
+    font-size: 14px;
+    margin-right: 0.2em;
   }
 
   .botao-limpar-filtro {
-    width: 32%;
+    width: 40%;
+    font-size: 12px;
   }
-
   .espaco-ordem {
-    width: 25%;
     margin-left: 0.5em;
   }
 
+  .limpar-ordem{
+    width: 50%;
+    font-size: 12px;
+  }
   .campo-ordenacao {
     width: 50%;
+    font-size: 14px;
+    margin: 0.2em;
   }
 
   .lista-pokedex-link {

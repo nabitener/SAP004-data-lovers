@@ -1,18 +1,32 @@
 # Data Lovers
 
+## Pokémon
+
+### História
+
+Segunda a [Wikipédia](https://pt.wikipedia.org/wiki/Pok%C3%A9mon), Pokémon é uma franquia de media criada por Satoshi Tajiri em 1995. A franquia começou com um par de jogos lançados para o Game Boy original, desenvolvidos pela Game Freak e publicados pela Nintendo. Atualmente, a franquia se estende em jogos, cartas colecionáveis, série de televisão, além de filmes, mangás e brinquedos. Pokémon é a segunda franquia de mídia de jogos mais bem sucedida e lucrativa do mundo, atrás da franquia de Mario que também pertence a Nintendo.
+
+### Projeto
+
+Nosso **_[site]_** tem como objetivo ajudar os treinadores a conhecerem seus pokemons para uma experiencia mais completa de jogo ou somente pra sanar curiosidades em relação a tipos, fraquezas e nomes dos 151 pokemons da região de Kanto.
+
+A idéia original era fazer um site simples que atendesse as necessidades do usuário de maneira eficaz e sem muitos passos! Os primeiros desenhos de baixa prototipação levaram a um design mais clean e com um sistema de busca aparente e intuitivo na pagina inicial e tbm com os pokemons listados logo abaixo!
+
+O resultado de uma pesquisa foi usado para definir quais eram as necessidades dos nossos usuarios e quais funcionalidades eles gostariam de ver no site.
+
 ## Índice
 
-* [1. Preâmbulo](#1-preâmbulo)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-consideracoes-gerais)
-* [5. Critérios mínimos de aceitação do projeto](#5-criterios-minimos-de-aceitacao-do-projeto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Considerações técnicas](#7-considerações-técnicas)
-* [8. Guias, dicas e leituras complementares](#8-pistas-dicas-e-leituras-complementares)
-* [9. Checklist](#9-checklist)
+- [1. Preâmbulo](#1-preâmbulo)
+- [2. Resumo do projeto](#2-resumo-do-projeto)
+- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
+- [4. Considerações gerais](#4-consideracoes-gerais)
+- [5. Critérios mínimos de aceitação do projeto](#5-criterios-minimos-de-aceitacao-do-projeto)
+- [6. Hacker edition](#6-hacker-edition)
+- [7. Considerações técnicas](#7-considerações-técnicas)
+- [8. Guias, dicas e leituras complementares](#8-pistas-dicas-e-leituras-complementares)
+- [9. Checklist](#9-checklist)
 
-***
+---
 
 ## 1. Preâmbulo
 
@@ -54,15 +68,15 @@ construir a interface que o ajude a interagir e entender melhor os dados.
 
 Este são os dados que propomos:
 
-* [Pokémon](src/data/pokemon/pokemon.json):
+- [Pokémon](src/data/pokemon/pokemon.json):
   Neste conjunto você encontrará uma lista com os 151 Pokémon da região de
   Kanto, com suas respectivas estatísticas utilizadas no jogo [Pokémon GO](http://pokemongolive.com).
   - [Pesquisa com jogadores de Pokémon Go](src/data/pokemon/README.pt-BR.md)
-* [League of Legends - Challenger leaderboard](src/data/lol/lol.json):
+- [League of Legends - Challenger leaderboard](src/data/lol/lol.json):
   Este conjunto mostra a lista de campeões do jogo League of
   Legends (LoL).
   - [Pesquisa com jogadores de LoL](src/data/lol/README.pt-BR.md)
-* [Rick and Morty](src/data/rickandmorty/rickandmorty.json).
+- [Rick and Morty](src/data/rickandmorty/rickandmorty.json).
   Lista de personagens da série Rick & Morty. Você pode revisar a documentação
   da API neste [link](https://rickandmortyapi.com).
   - [Pesquisa com seguidores de Rick and Morty](src/data/rickandmorty/README.pt-BR.md)
@@ -75,28 +89,28 @@ usuário necessita.
 
 Em outras palavras, você aprenderá a:
 
-* Aplicar e aprofundar tudo o que aprendeu no projeto anterior.
-* Pensar nas **necessidades dos usuários** para criar histórias de usuário.
-* Escrever e trabalhar com **histórias de usuário**, suas definições de pronto
+- Aplicar e aprofundar tudo o que aprendeu no projeto anterior.
+- Pensar nas **necessidades dos usuários** para criar histórias de usuário.
+- Escrever e trabalhar com **histórias de usuário**, suas definições de pronto
   (_definition of done_) e critérios de aceitação como ferramentas centrais
   de organização e planejamento de seu trabalho.
-* Definir que dados utilizar e de que forma exibí-los em seu produto,
+- Definir que dados utilizar e de que forma exibí-los em seu produto,
   baseando-se no seu **entendimento do usuário**.
-* Iterar o desenho do produto, baseando-se nos resultados dos
+- Iterar o desenho do produto, baseando-se nos resultados dos
   **testes de usabilidade**.
-* Manipular **arrays e objetos**.
-* **Manipular o DOM** (agregar elementos de forma dinâmica)
-* **Manejar eventos do DOM** para permitir interação com o usuário (filtros,
+- Manipular **arrays e objetos**.
+- **Manipular o DOM** (agregar elementos de forma dinâmica)
+- **Manejar eventos do DOM** para permitir interação com o usuário (filtros,
   ordenação, etc).
-* Entender os benefícios e complexidades de **trabalhar em equipe** em um
+- Entender os benefícios e complexidades de **trabalhar em equipe** em um
   ambiente de incerteza.
 
 ## 4. Considerações gerais
 
-* Este projeto será executado em duplas.
-* Este projeto será entregue através do GitHub e a interface deve ser publicada
+- Este projeto será executado em duplas.
+- Este projeto será entregue através do GitHub e a interface deve ser publicada
   no [GitHub Pages](https://pages.github.com/).
-* Tempo para completá-lo: três semanas.
+- Tempo para completá-lo: três semanas.
 
 ## 5. Critérios mínimos de aceitação do projeto
 
@@ -170,13 +184,13 @@ deste projeto.
 
 Features/características extra sugeridas:
 
-* Ao invés de consumir dados estáticos do repositório, pode fazer isso de forma
+- Ao invés de consumir dados estáticos do repositório, pode fazer isso de forma
   dinâmica, carregando um arquivo JSON com `fetch`. A pasta `src/data` contém
   uma versão `.js` e uma `.json` de cada conjunto de dados.
-* Adicione à sua interface visualização de dados em forma de gráficos. Para
+- Adicione à sua interface visualização de dados em forma de gráficos. Para
   isso, recomendamos explorar bibliotecas de gráficos como [Chart.js](https://www.chartjs.org/)
   ou [Google Charts](https://developers.google.com/chart/).
-* 100% de cobertura nos testes.
+- 100% de cobertura nos testes.
 
 ## 7. Considerações técnicas
 
@@ -250,7 +264,7 @@ Por exemplo, se "descomentamos" a seguinte linha:
 A linha ficaria assim:
 
 ```js
-import data from './data/pokemon/pokemon.js';
+import data from "./data/pokemon/pokemon.js";
 ```
 
 E agora teríamos a variável `data` disponível em `src/main.js`.
@@ -262,17 +276,17 @@ O coração deste projeto é a manipulação de dados através de arrays e objet
 Recomendamos que este arquivo contenha toda a funcionalidade que corresponda a
 obter, processar e manipular dados (suas funções):
 
-* `filterData(data, condition)`: esta função receberia os dados e nos
+- `filterData(data, condition)`: esta função receberia os dados e nos
   retornaria os que cumprem com a condição.
 
-* `sortData(data, sortBy, sortOrder)`: esta função recebe três parâmetros.
+- `sortData(data, sortBy, sortOrder)`: esta função recebe três parâmetros.
   O primeiro, `data`, nos entrega os dados.
   O segundo, `sortBy`, diz respeito a qual das informações quer usar para
   ordenar.
   O terceiro, `sortOrder`, indica se quer ordenar de maneira crescente ou
   decrescente.
 
-* `computeStats(data)`: essa função nos permite fazer cálculos estatísticos
+- `computeStats(data)`: essa função nos permite fazer cálculos estatísticos
   básicos para serem exibidos de acordo com o que os dados permitem.
 
 Estes nomes de funções e parâmetros são somente referência, o que vocês decidir
@@ -298,7 +312,7 @@ para, opcionalmnente, ser carregado de forma assíncrona com
 Você também deverá fazer os teste unitários das funções implementadas no
 arquivo `data.js`.
 
-***
+---
 
 ## 8. Guias, dicas e leituras complementares
 
@@ -308,13 +322,13 @@ Antes de começar a escrever o código, você deve definir seu produto com base 
 conhecimento que puder obter a respeito de seus usuários. Estas perguntas podem
 ajudar:
 
-* Quem são os usuários principais do produto?
-* Quais são os objetivos dos usuários com relação ao produto?
-* Quais são os dados mais relevantes que querem ver na interface e por quê?
-* Quando utilizam ou utilizariam o produto?
-* Toda sua investigação prévia deve ter como resultado as histórias de
+- Quem são os usuários principais do produto?
+- Quais são os objetivos dos usuários com relação ao produto?
+- Quais são os dados mais relevantes que querem ver na interface e por quê?
+- Quando utilizam ou utilizariam o produto?
+- Toda sua investigação prévia deve ter como resultado as histórias de
   usuário de seu projeto.
-* Não faça os protótipos de alta fidelidade de todas as suas histórias. Comece somente pela que necessite para seu Sprint 1.
+- Não faça os protótipos de alta fidelidade de todas as suas histórias. Comece somente pela que necessite para seu Sprint 1.
 
 Quando estiver pronta para codar, sugerimos começar desta forma:
 
@@ -325,8 +339,8 @@ Quando estiver pronta para codar, sugerimos começar desta forma:
    [configurar](https://gist.github.com/BCasal/026e4c7f5c71418485c1) um
    `remote` a partir dele.
 
-2. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
-   seu _fork_ para seu computador (cópia local).
+2. :arrow*down: [Clona](https://help.github.com/articles/cloning-a-repository/)
+   seu \_fork* para seu computador (cópia local).
 
 3. Instale as dependências do projeto com o comando `npm install`, assumindo
    que já tenha instalado o [Node.js](https://nodejs.org/) (que inclui [npm](https://docs.npmjs.com/)).
@@ -339,66 +353,66 @@ Quando estiver pronta para codar, sugerimos começar desta forma:
 
 6. Comece a codar! :rocket:
 
-***
+---
 
 ### Conteúdo de referência
 
 #### UX Design (Experiência do usuário)
 
-* Pesquisa com usuarios / entrevistas
-* Princípios de design/UI
+- Pesquisa com usuarios / entrevistas
+- Princípios de design/UI
 
 #### Desenvolvimento Front-End
 
-* Unidade de testes do curso de JavaScript do LMS.
-* Unidade de arrays do curso de JavaScript do LMS.
-* Unidade de objetos do curso de JavaScript do LMS.
-* Unidade de funções do curso de JavaScript do LMS.
-* Unidade de DOM do curso de JavaScript do LMS.
-* [Array no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [Array.sort no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
-* [Array.map no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
-* [Array.filter no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filtro)
-* [Array.reduce no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-* [Array.forEach no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-* [Object.keys no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
-* [Object.entries no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
-* [Fetch API no MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-* [json.org](https://json.org/json-pt.html)
-* [Modulos: Export](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export)
-* [Modulos: Import](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/import)
+- Unidade de testes do curso de JavaScript do LMS.
+- Unidade de arrays do curso de JavaScript do LMS.
+- Unidade de objetos do curso de JavaScript do LMS.
+- Unidade de funções do curso de JavaScript do LMS.
+- Unidade de DOM do curso de JavaScript do LMS.
+- [Array no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [Array.sort no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+- [Array.map no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+- [Array.filter no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/filtro)
+- [Array.reduce no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+- [Array.forEach no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+- [Object.keys no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)
+- [Object.entries no MDN](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Object/entries)
+- [Fetch API no MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [json.org](https://json.org/json-pt.html)
+- [Modulos: Export](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/export)
+- [Modulos: Import](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Statements/import)
 
 #### Ferramentas
 
-* [Git](https://git-scm.com/)
-* [GitHub](https://github.com/)
-* [GitHub Pages](https://pages.github.com/)
-* [Node.js](https://nodejs.org/)
-* [Jest](https://jestjs.io/)
+- [Git](https://git-scm.com/)
+- [GitHub](https://github.com/)
+- [GitHub Pages](https://pages.github.com/)
+- [Node.js](https://nodejs.org/)
+- [Jest](https://jestjs.io/)
 
 #### Organização do trabalho
 
-* [Histórias de Usuário](https://www.youtube.com/watch?v=sEtiCJfXTE8)
-* [Definição de pronto](https://www.youtube.com/watch?v=Kfss63Q42F8)
-* [Critérios de aceitação](https://medium.com/@karladiasn/user-stories-e-crit%C3%A9rios-de-aceita%C3%A7%C3%A3o-317c48403fcd)
-* [Guia para Data Lovers](https://docs.google.com/presentation/d/1bOq8ns5wsvXdksdqYL3aQoxzFQsXTVlyvlV-yxI2oBM/present?token=AC4w5VhHBbEEA9u2w8bm3Ey1Cse349frbg%3A1567540902700&includes_info_params=1&eisi=CM_ytPW4teQCFQrJgQodeTcEZg#slide=id.g5282e1a53f_1_106)
+- [Histórias de Usuário](https://www.youtube.com/watch?v=sEtiCJfXTE8)
+- [Definição de pronto](https://www.youtube.com/watch?v=Kfss63Q42F8)
+- [Critérios de aceitação](https://medium.com/@karladiasn/user-stories-e-crit%C3%A9rios-de-aceita%C3%A7%C3%A3o-317c48403fcd)
+- [Guia para Data Lovers](https://docs.google.com/presentation/d/1bOq8ns5wsvXdksdqYL3aQoxzFQsXTVlyvlV-yxI2oBM/present?token=AC4w5VhHBbEEA9u2w8bm3Ey1Cse349frbg%3A1567540902700&includes_info_params=1&eisi=CM_ytPW4teQCFQrJgQodeTcEZg#slide=id.g5282e1a53f_1_106)
 
-***
+---
 
 ## 9. Checklist
 
-* [ ] Usar VanillaJS.
-* [ ] Não utilizar `this`.
-* [ ] Passa pelo linter (`npm run pretest`)
-* [ ] Passa pelos testes (`npm test`)
-* [ ] Testes unitários cobrem um mínimo de 70% de statements, functions,
-  lines e branches.
-* [ ] Inclui uma _definição de produto_ clara e informativa no `README.md`.
-* [ ] Inclui histórias de usuário no `README.md`.
-* [ ] Inclui rascunho da solução (protótipo de baixa fidelidade) no
-  `README.md`.
-* [ ] Inclui uma lista de problemas detectados nos testes de usabilidade no `README.md`.
-* [ ] UI: Mostra lista/tabela/etc com dados e/ou indicadores.
-* [ ] UI: Permite ordenar dados por um ou mais campos (asc e desc).
-* [ ] UI: Permite filtrar dados com base em uma condição.
-* [ ] UI: É _responsivo_.
+- [ ] Usar VanillaJS.
+- [ ] Não utilizar `this`.
+- [ ] Passa pelo linter (`npm run pretest`)
+- [ ] Passa pelos testes (`npm test`)
+- [ ] Testes unitários cobrem um mínimo de 70% de statements, functions,
+      lines e branches.
+- [ ] Inclui uma _definição de produto_ clara e informativa no `README.md`.
+- [ ] Inclui histórias de usuário no `README.md`.
+- [ ] Inclui rascunho da solução (protótipo de baixa fidelidade) no
+      `README.md`.
+- [ ] Inclui uma lista de problemas detectados nos testes de usabilidade no `README.md`.
+- [ ] UI: Mostra lista/tabela/etc com dados e/ou indicadores.
+- [ ] UI: Permite ordenar dados por um ou mais campos (asc e desc).
+- [ ] UI: Permite filtrar dados com base em uma condição.
+- [ ] UI: É _responsivo_.

@@ -47,11 +47,17 @@ function card(array) {
     let dadoImagem = array[i].img;
     let dadoNome = array[i].name;
     let dadoTipo = array[i].type;
+    let dadoNum = array[i].num;
    
     let li = document.createElement("li");
     li.classList.add("lista-pokedex-link");
     li.innerHTML += "<h4>" + dadoNome + "</h4>";
     ul.appendChild(li);
+
+    let num = document.createElement("p");
+    num.classList.add("lista-num");
+    num.textContent += dadoNum;
+    li.appendChild(num);
 
     let img = document.createElement("img");
     img.classList.add("lista-img");
@@ -63,16 +69,17 @@ function card(array) {
     li.appendChild(tipo);
 
     let tipoZero = document.createElement("tipo");
-    tipoZero.classList.add("lista-tipo-zero");
+    tipoZero.classList.add(dadoTipo[0]);
     tipoZero.textContent = dadoTipo[0];
     tipo.appendChild(tipoZero);
 
     if(!dadoTipo[1] == 0){
     let tipoUm = document.createElement("tipo");
-    tipoUm.classList.add("lista-tipo-um");
-    tipoUm.textContent = dadoTipo[1];
+    tipoUm.classList.add(dadoTipo[1]);
+    tipoUm.innerHTML = dadoTipo[1];
     tipo.appendChild(tipoUm);
     }
   }
+
 }
 

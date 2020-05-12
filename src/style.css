@@ -120,7 +120,7 @@
   justify-content: center;
 }
 
-.lista-pokedex {
+.lista-pokedex{
   width: 100%;
   margin: 0em;
   padding: 0em;
@@ -131,26 +131,9 @@
   justify-content: space-around;
   margin: 0;
   padding: 0;
-  perspective: 1000px;
 }
 
-.lista-img {
-  height: 140px;
-  order: -1;
-}
-
-.lista-img:hover {
-  transform: rotateY(180deg);
-  cursor: pointer;
-}
-
-.lista-num{
-  order: -1;
-  align-self: flex-end;
-  font-weight: bold;
-}
-
-.lista-pokedex-link {
+.lista-pokedex-link{
   width: 25%;
   height: 250px;
   padding: 0.5em;
@@ -169,11 +152,64 @@
   margin-bottom: 1em;
 }
 
+.lista-img {
+  height: 140px;
+  order: -1;
+}
+
+.lista-num{
+  order: -1;
+  align-self: flex-end;
+  font-weight: bold;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .Grass {
   border: 1px solid white;
   background-color: rgba(23, 160, 57, 0.8);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -181,7 +217,7 @@
   border: 1px solid white;
   background-color: rgba(218, 39, 203, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -189,7 +225,7 @@
   border: 1px solid white;
   background-color: rgba(253, 30, 30, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -197,7 +233,7 @@
   border: 1px solid white;
   background-color: rgba(255, 241, 241, 0.835);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -205,7 +241,7 @@
   border: 1px solid white;
   background-color: rgba(34, 76, 214, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -213,7 +249,7 @@
   border: 1px solid white;
   background-color: rgba(30, 253, 49, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -221,7 +257,7 @@
   border: 1px solid white;
   background-color: rgba(245, 245, 4, 0.876);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -229,7 +265,7 @@
   border: 1px solid white;
   background-color: rgba(228, 156, 74, 0.876);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -237,7 +273,7 @@
   border: 1px solid white;
   background-color: rgba(255, 96, 4, 0.849);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -245,7 +281,7 @@
   border: 1px solid white;
   background-color: rgba(240, 33, 143, 0.849);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -253,7 +289,7 @@
   border: 1px solid white;
   background-color: rgba(185, 77, 50, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -261,7 +297,7 @@
   border: 1px solid white;
   background-color: rgba(42, 169, 253, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -269,7 +305,7 @@
   border: 1px solid white;
   background-color: rgba(121, 33, 148, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
 
@@ -277,18 +313,34 @@
   border: 1px solid white;
   background-color: rgba(148, 54, 236, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
-
 .Normal{
   border: 1px solid white;
   background-color: rgba(156, 154, 158, 0.801);
   border-radius: 10px;
-  margin: 0.5em;
+  margin: 0.2em;
   padding: 0.3em;
 }
-
+.Fairy{
+  border: 1px solid white;
+  background-color: rgba(184, 7, 101, 0.808);
+  border-radius: 10px;
+  margin: 0.2em;
+  padding: 0.3em;
+}
+.Dark{
+  border: 1px solid white;
+  background-color: rgba(36, 36, 36, 0.801);
+  border-radius: 10px;
+  margin: 0.2em;
+  padding: 0.3em;
+}
+.fraqueza, .tipo{
+  font-weight: bold;
+  font-size: 16px;
+}
 .rodape {
   background-color: rgba(255, 255, 255, 0.3);
   color: white;
@@ -306,7 +358,7 @@
     width: 40%;
   }
 
-  .lista-pokedex-link {
+  .lista-pokedex-link, .lista-info{
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -396,7 +448,7 @@
     margin: 0.2em;
   }
 
-  .lista-pokedex-link {
+  .lista-pokedex-link, .lista-info{
     width: 40%;
   }
 }

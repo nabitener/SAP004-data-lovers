@@ -17,7 +17,7 @@
     <div class="navBar">
       <section class="espaco-filtro">
         <label for="filtro" class="logo-filtro"></label>
-        <input list="tipos" name="filtrar" id="filtro" class="filtrar-pokemon" placeholder="Filtrar Tipo"/>
+        <input list="tipos" name="filtrar" id="filtro" class="filtrar-pokemon" placeholder="Filtrar Tipo" />
         <datalist id="tipos">
           <option value="Grass"></option>
           <option value="Poison"></option>
@@ -37,15 +37,15 @@
         </datalist>
         <input type="button" value="Limpar filtro" id="botao-limpar" class="botao-limpar-filtro">
       </section>
-      <section class="espaco-ordem"> 
-        <input list="ordenacao" class="campo-ordenacao" id="campo-ordenacao-pokemon" name="Ordem" placeholder="Ordem"/>
+      <section class="espaco-ordem">
+        <input list="ordenacao" class="campo-ordenacao" id="campo-ordenacao-pokemon" name="Ordem" placeholder="Ordem" />
         <datalist id="ordenacao">
           <option value="A - Z"></option>
           <option value="Z - A"></option>
         </datalist>
         <input type="button" value="Limpar Ordem" class="limpar-ordem" id="limpar-ordem-pokemon">
       </section>
-      <section class="espaco-busca">  
+      <section class="espaco-busca">
         <input type="text" name="buscar" id="campo-busca" class="campo-buscar-nome" placeholder="Buscar nome">
       </section>
     </div>
@@ -54,11 +54,15 @@
     <section id="pokemons" class="pokedex">
       <ul id="lista-pokemon" class="lista-pokedex"></ul>
     </section>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+      </div>
+    </div>
   </main>
   <footer class="rodape">
     By Carolina Moscheta & Nathalia Bitener
   </footer>
   <script src="main.js" type="module"></script>
 </body>
-</html>
 
+</html>

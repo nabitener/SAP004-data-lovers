@@ -3,7 +3,7 @@ export function filtrar(campo, array) {
  const filtrado = array.filter((item) => item.type.includes(campo))
 return filtrado;
 }
- 
+
 export  function buscarNome(campo, array){
   const buscado = array.filter((item) => item.name.includes(campo))
 return buscado;

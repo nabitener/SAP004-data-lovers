@@ -1,4 +1,4 @@
-import { filtrar, ordemNomes, buscarNome } from "./data.js";
+import { filtrar, ordemNomes, buscarNome, imc } from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
 const arrayPokemon = data["pokemon"];
@@ -6,9 +6,9 @@ const arrayPokemon = data["pokemon"];
 card(arrayPokemon);
 
 let modal = document.getElementById("myModal");
-let span = document.getElementsByClassName("close");
+let botaoFechar = document.getElementsByClassName("close");
 
-span.onclick = function () {
+botaoFechar.onclick = function () {
   modal.style.display = "none";
 }
 window.onclick = function (event) {
@@ -103,7 +103,12 @@ function modalCard(element) {
   divPai.innerHTML="";
 
   let div = document.createElement("div");
+  div.classList.add("lista-info");
   divPai.appendChild(div);
+
+  let divImg = document.createElement("div");
+  divImg.classList.add("divImg");
+  divPai.appendChild(divImg);
 
   let botaoFechar = document.createElement("span");
   botaoFechar.textContent = "X";
@@ -111,35 +116,50 @@ function modalCard(element) {
   div.appendChild(botaoFechar);
 
   let img = document.createElement("img");
+  img.classList.add("lista-info-img");
   img.src = element.img;
-  div.appendChild(img);
+  divImg.appendChild(img);
 
   let num = document.createElement("p");
   num.textContent = element.num;
-  div.appendChild(num);
+  num.classList.add("lista-info-num");
+  divImg.appendChild(num);
 
   let nome = document.createElement("p");
   nome.textContent = element.name;
-  div.appendChild(nome);
+  nome.classList.add("lista-info-nome");
+  divImg.appendChild(nome);
 
   let height = document.createElement("p");
-  height.textContent = element.height;
+  height.textContent = "Height: " + element.height;
+  height.classList.add("lista-info-height");
   div.appendChild(height);
 
   let weight = document.createElement("p");
-  weight.textContent = element.weight;
+  weight.textContent = "Weight: " + element.weight;
+  weight.classList.add("lista-info-weight");
   div.appendChild(weight);
 
   let candy = document.createElement("p");
-  candy.textContent = element.candy;
+  candy.textContent = "Candy: " + element.candy_count;
+  candy.classList.add("lista-info-candy");
   div.appendChild(candy);
 
+  let imcPokemon = document.createElement("p");
+  let peso = element.weight.replace("kg", "");
+  let altura = element.height.replace("m", "");
+  imcPokemon.textContent = "Curiosidade IMC -> " + imc(peso, altura);
+  imcPokemon.classList.add("lista-info-imc");
+  div.appendChild(imcPokemon);
+
   let weakness = document.createElement("p");
-  weakness.textContent = element.weaknesses.join(" ");
+  weakness.textContent = "Fraqueza: " + element.weaknesses.join(" ");
+  weakness.classList.add("lista-info-fraqueza");
   div.appendChild(weakness);
 
   let evolution = document.createElement("p");
-  evolution.textContent = element.next_evolution.map(next => next.name).join(" ");
+  evolution.textContent = "Próxima evolução: " + element.next_evolution.map(next => next.name).join(" ");
+  evolution.classList.add("lista-info-evolution");
   div.appendChild(evolution);
 
   modal.style.display = "block";

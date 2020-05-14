@@ -9,17 +9,6 @@ export  function buscarNome(campo, array){
 return buscado;
 }
 
-export function imc(peso, altura){
-  const imc = ((peso)/(altura*altura)).toFixed(2);
-  if(imc <= 18.5){
-    return ("Pokemon abaixo do peso: "+imc);
-  }else if(imc > 18.5){
-    return ("Pokemon com peso normal: "+imc);
-  }else{
-    return ("Pokemon acima do peso: "+ imc);
-  }
-}
-
 export function ordemNomes(campo, array){
   const opcao = array.sort(function (a, b) {
     if (a.name > b.name) {

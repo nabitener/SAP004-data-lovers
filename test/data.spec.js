@@ -7,11 +7,11 @@ const testeFiltrar = [
 ]
 
 describe('filtrar', () => {
-  it('is a function', () => {
+  it('should be a function', () => {
     expect(typeof filtrar).toBe('function');
   });
 
-  it('filtrar', () => {
+  it('should return "type: ["Fire", "Flying"], type: ["Fire"]" for "Fire" with testeFiltar', () => {
     expect(filtrar("Fire", testeFiltrar)).toStrictEqual([{"type": ["Fire", "Flying"]}, {"type": ["Fire"]}]);
   });
 });
@@ -23,16 +23,16 @@ const testeOrdem = [
 ];
 
 describe('ordemNomes', () => {
-  it('is a function', () => {
+  it('should be a function', () => {
     expect(typeof ordemNomes).toBe('function');
   });
 
-  it('ordemNomes', () => {
+  it('should return "Bulbasaur, Charmeleon, Squirtle" for "A - Z" with testeOrdem', () => {
     expect(ordemNomes("A - Z", testeOrdem)).toStrictEqual([{"name": "Bulbasaur"}, {"name": "Charmeleon"}, {"name": "Squirtle"}]);
   });
 });
 
-it('ordemNomes', () => {
+it('should return "Squirtle, Charmeleon, Bulbasaur" for "Z - A" with testeOrdem', () => {
   expect(ordemNomes("Z - A", testeOrdem)).toStrictEqual([{"name": "Squirtle"}, {"name": "Charmeleon"}, {"name": "Bulbasaur"}]);
 });
 
@@ -44,11 +44,11 @@ const testeBuscar = [
 ]
 
 describe('buscarNome', () => {
-  it('is a function', () => {
+  it('should be a function', () => {
     expect(typeof buscarNome).toBe('function');
   });
 
-  it('buscarNome', () => {
+  it('should return "Blastoise" for "Blastoise" with testeBuscar', () => {
     expect(buscarNome("Blastoise", testeBuscar)).toStrictEqual([{"name": "Blastoise"}]);
   });
 });

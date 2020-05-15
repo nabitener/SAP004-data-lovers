@@ -151,22 +151,40 @@ function modalCard(element) {
     pFraqueza.appendChild(infoFraqueza);
   });
 
+  let pEvolution = document.createElement("p");
+  pEvolution.innerHTML = "<h4>" + "Próxima evolução:" + "</h4>";
+  pEvolution.classList.add("lista-info-evolution");
+  div.appendChild(pEvolution);
+
+  let divEvolution = document.createElement("div");
+  divEvolution.classList.add("lista-evolution");
+  pEvolution.appendChild(divEvolution);
+
   if (!element.next_evolution == 0) {
-    let evolution = document.createElement("p");
-    evolution.innerHTML = "<h4>" + "Próxima evolução: " + "</h4>" + element.next_evolution.map(next => next.name).join(" ");
-    evolution.classList.add("lista-info-evolution");
-    div.appendChild(evolution);
+    const arrayNextEvolution = element.next_evolution.map(next => next.name);
+    arrayNextEvolution.forEach(function (item) {
+      let buscarImg = buscarNome(item, arrayPokemon);
+      let buscarImgArray = buscarImg.find(itemArray => itemArray.img);
+      let evolutionImg = document.createElement("img");
+      let evolution = document.createElement("p");
+      evolutionImg.classList.add("lista-evolution-img");
+      evolutionImg.src = buscarImgArray.img;
+      evolution.innerHTML = "<h4>" + item + "</h4>";
+      evolution.classList.add("lista-evolution-nome");
+      evolution.appendChild(evolutionImg);
+      divEvolution.appendChild(evolution);
+    })
   } else {
-    let evolution = document.createElement("p");
-    evolution.innerHTML = "<h4>" + "Próxima evolução: " + "</h4>" + "Ese Pokémon não evolui ";
+    const evolution = document.createElement("p");
+    evolution.innerHTML = "Este Pokémon não evolui";
     evolution.classList.add("lista-info-evolution");
     div.appendChild(evolution);
   }
-  botaoFechar = document.getElementsByClassName("close");
+  botaoFechar = document.querySelector(".close");
   botaoFechar.onclick = function () {
     modal.style.display = "none";
   }
-
   modal.style.display = "block";
 }
+
 

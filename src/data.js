@@ -9,7 +9,8 @@ export function buscarNome(campo, array) {
 }
 
 export function ordemNomes(campo, array) {
-  const opcao = array.sort(function (a, b) {
+  const novoArray = [...array];
+  const opcao = novoArray.sort(function (a, b) {
     if (a.name > b.name) {
       return 1;
     } else {

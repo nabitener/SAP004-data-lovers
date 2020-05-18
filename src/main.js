@@ -1,4 +1,4 @@
-import { filtrar, ordemNomes, buscarNome } from "./data.js";
+import { filtrar, ordemNomes, buscarNome, chocarOvo} from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
 const arrayPokemon = data["pokemon"];
@@ -137,6 +137,19 @@ function modalCard(element) {
     candy.innerHTML = "<h4>" + "Candy count: " + "</h4>" + element.candy_count;
     candy.classList.add("lista-info-candy");
     div.appendChild(candy);
+  }
+
+  if(element.egg == "Not in Eggs"){
+    let egg = document.createElement("p");
+    egg.innerHTML = "<h4>" + "Não há ovos para serem chocados" + "</h4>";
+    egg.classList.add("lista-info-egg");
+    div.appendChild(egg);
+  }else{
+    let egg = document.createElement("p");
+    let eggKm = element.egg.replace("km", "");
+    egg.innerHTML = "<h4>" + "Uma pessoa andando 5km/h vai demorar:  " + "</h4>" + chocarOvo(eggKm) + " min para chocar o ovo";
+    egg.classList.add("lista-info-egg");
+    div.appendChild(egg);
   }
 
   let pFraqueza = document.createElement("p");

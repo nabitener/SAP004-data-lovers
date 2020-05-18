@@ -1,4 +1,4 @@
-import {filtrar, ordemNomes, buscarNome} from '../src/data.js';
+import {filtrar, ordemNomes, buscarNome, chocarOvo} from '../src/data.js';
 
 const testeFiltrar = [
   {"type": ["Fire", "Flying"]},
@@ -53,3 +53,32 @@ describe('buscarNome', () => {
   });
 });
 
+describe('chocarOvo', () => {
+  it('should be a function', () => {
+    expect(typeof chocarOvo).toBe('function');
+  });
+
+  it('should return "24" with "2"', () => {
+    expect(chocarOvo(2)).toBe(24);
+  });
+});
+
+describe('chocarOvo', () => {
+  it('should be a function', () => {
+    expect(typeof chocarOvo).toBe('function');
+  });
+
+  it('should return "60" with "5"', () => {
+    expect(chocarOvo(5)).toBe(60);
+  });
+});
+
+describe('chocarOvo', () => {
+  it('should be a function', () => {
+    expect(typeof chocarOvo).toBe('function');
+  });
+
+  it('should return "120" with "10"', () => {
+    expect(chocarOvo(10)).toBe(120);
+  });
+});

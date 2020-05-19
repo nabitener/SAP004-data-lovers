@@ -24,6 +24,11 @@ export function ordemNomes(campo, array) {
   }
 }
 
+export function limpaCampo(selector) {
+  const campo = document.querySelector(selector);
+  campo.value = ""
+}
+
 export function chocarOvo(km) {
   return (km / 5) * 60
 }

@@ -1,11 +1,16 @@
-import { filtrar, ordemNomes, buscarNome, chocarOvo} from "./data.js";
+import {
+  filtrar,
+  ordemNomes,
+  buscarNome,
+  chocarOvo,
+  limpaCampo
+} from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
 const arrayPokemon = data["pokemon"];
 let modal = document.getElementById("myModal");
 
 card(arrayPokemon);
-
 
 window.onclick = function (event) {
   if (event.target == modal) {
@@ -19,22 +24,20 @@ campoFiltro.addEventListener("input", function filtrados() {
 });
 
 let botaoLimparFiltro = document.querySelector("#botao-limpar");
-botaoLimparFiltro.addEventListener("click", function limparFiltro() {
-  let campoFiltro = document.querySelector(".filtrar-pokemon");
-  campoFiltro.value = "";
+botaoLimparFiltro.addEventListener("click", function () {
+  limpaCampo('.filtrar-pokemon')
+  card(arrayPokemon);
+});
+
+let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
+botaoLimparOrdem.addEventListener("click", function () {
+  limpaCampo('#campo-ordenacao-pokemon')
   card(arrayPokemon);
 });
 
 let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
 campoOrdem.addEventListener("input", function () {
   card(ordemNomes(campoOrdem.value, arrayPokemon));
-});
-
-let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
-botaoLimparOrdem.addEventListener("click", function limparOrdem() {
-  let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
-  campoOrdem.value = "";
-  card(arrayPokemon);
 });
 
 let campoBusca = document.querySelector("#campo-busca");
@@ -139,12 +142,12 @@ function modalCard(element) {
     div.appendChild(candy);
   }
 
-  if(element.egg == "Not in Eggs"){
+  if (element.egg == "Not in Eggs") {
     let egg = document.createElement("p");
     egg.innerHTML = "<h4>" + "Não há ovos para serem chocados" + "</h4>";
     egg.classList.add("lista-info-egg");
     div.appendChild(egg);
-  }else{
+  } else {
     let egg = document.createElement("p");
     let eggKm = element.egg.replace("km", "");
     egg.innerHTML = "<h4>" + "Uma pessoa andando 5km/h vai demorar:  " + "</h4>" + chocarOvo(eggKm) + " min para chocar o ovo";
@@ -199,5 +202,3 @@ function modalCard(element) {
   }
   modal.style.display = "block";
 }
-
-

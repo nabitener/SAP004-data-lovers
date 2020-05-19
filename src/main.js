@@ -2,8 +2,7 @@ import {
   filtrar,
   ordemNomes,
   buscarNome,
-  chocarOvo,
-  limpaCampo
+  chocarOvo
 } from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
@@ -18,28 +17,6 @@ window.onclick = function (event) {
   }
 }
 
-let campoFiltro = document.querySelector(".filtrar-pokemon");
-campoFiltro.addEventListener("input", function filtrados() {
-  card(filtrar(campoFiltro.value, arrayPokemon));
-});
-
-let botaoLimparFiltro = document.querySelector("#botao-limpar");
-botaoLimparFiltro.addEventListener("click", function () {
-  limpaCampo('.filtrar-pokemon')
-  card(arrayPokemon);
-});
-
-let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
-botaoLimparOrdem.addEventListener("click", function () {
-  limpaCampo('#campo-ordenacao-pokemon')
-  card(arrayPokemon);
-});
-
-let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
-campoOrdem.addEventListener("input", function () {
-  card(ordemNomes(campoOrdem.value, arrayPokemon));
-});
-
 let campoBusca = document.querySelector("#campo-busca");
 campoBusca.addEventListener("input", function Buscado() {
   let campoBuscado = document.querySelector("#campo-busca").value;
@@ -49,6 +26,32 @@ campoBusca.addEventListener("input", function Buscado() {
     .concat(campoBuscado.substring(1));
   card(buscarNome(campoBuscado, arrayPokemon));
 });
+
+let campoFiltro = document.querySelector(".filtrar-pokemon");
+campoFiltro.addEventListener("input", function filtrados() {
+  card(filtrar(campoFiltro.value, arrayPokemon));
+});
+
+let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
+campoOrdem.addEventListener("input", function () {
+  card(ordemNomes(campoOrdem.value, arrayPokemon));
+});
+
+function limpaCampo(selector) {
+  const campo = document.querySelector(selector);
+  campo.value = ""
+  card(arrayPokemon);
+}
+
+let botaoLimparFiltro = document.querySelector("#botao-limpar");
+botaoLimparFiltro.addEventListener("click", function () {
+  limpaCampo('.filtrar-pokemon')
+});
+
+let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
+botaoLimparOrdem.addEventListener("click", function () {
+  limpaCampo('#campo-ordenacao-pokemon')
+})
 
 function card(array) {
 

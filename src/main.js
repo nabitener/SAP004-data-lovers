@@ -7,10 +7,9 @@ import {
 import data from "./data/pokemon/pokemon.js";
 
 const arrayPokemon = data["pokemon"];
-let modal = document.getElementById("myModal");
-
 card(arrayPokemon);
 
+let modal = document.getElementById("myModal");
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -37,12 +36,6 @@ campoOrdem.addEventListener("input", function () {
   card(ordemNomes(campoOrdem.value, arrayPokemon));
 });
 
-function limpaCampo(selector) {
-  const campo = document.querySelector(selector);
-  campo.value = ""
-  card(arrayPokemon);
-}
-
 let botaoLimparFiltro = document.querySelector("#botao-limpar");
 botaoLimparFiltro.addEventListener("click", function () {
   limpaCampo('.filtrar-pokemon')
@@ -51,10 +44,9 @@ botaoLimparFiltro.addEventListener("click", function () {
 let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
 botaoLimparOrdem.addEventListener("click", function () {
   limpaCampo('#campo-ordenacao-pokemon')
-})
+});
 
 function card(array) {
-
   const ul = document.querySelector("#lista-pokemon");
   ul.innerHTML = " ";
 
@@ -84,19 +76,17 @@ function card(array) {
     tipo.classList.add("lista-tipo");
     li.appendChild(tipo);
 
-    dadoTipo.forEach(a => {
+    dadoTipo.forEach(tipoPokemon => {
       const infoTipo = document.createElement("tipo");
-      infoTipo.classList = (a);
-      infoTipo.textContent = a;
+      infoTipo.classList = (tipoPokemon);
+      infoTipo.textContent = tipoPokemon;
       tipo.appendChild(infoTipo);
     });
-
     li.addEventListener("click", () => modalCard(array[i]));
   }
 }
 
 function modalCard(element) {
-
   let divPai = document.querySelector(".modal-content");
   divPai.innerHTML = "";
 
@@ -163,10 +153,10 @@ function modalCard(element) {
   pFraqueza.innerHTML = "<h4>" + "Fraqueza" + "</h4>";
   div.appendChild(pFraqueza);
 
-  element.weaknesses.forEach(a => {
+  element.weaknesses.forEach(fraqueza => {
     const infoFraqueza = document.createElement("tipo");
-    infoFraqueza.classList = (a);
-    infoFraqueza.textContent = a;
+    infoFraqueza.classList = (fraqueza);
+    infoFraqueza.textContent = fraqueza;
     pFraqueza.appendChild(infoFraqueza);
   });
 
@@ -181,7 +171,7 @@ function modalCard(element) {
 
   if (!element.next_evolution == 0) {
     const arrayNextEvolution = element.next_evolution.map(next => next.name);
-    arrayNextEvolution.forEach(function (item) {
+    arrayNextEvolution.forEach(item => {
       let buscarImg = buscarNome(item, arrayPokemon);
       let buscarImgArray = buscarImg.find(itemArray => itemArray.img);
       let evolutionImg = document.createElement("img");
@@ -204,4 +194,10 @@ function modalCard(element) {
     modal.style.display = "none";
   }
   modal.style.display = "block";
+}
+
+function limpaCampo(selector) {
+  const campo = document.querySelector(selector);
+  campo.value = ""
+  card(arrayPokemon);
 }

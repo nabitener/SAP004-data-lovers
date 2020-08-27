@@ -1,24 +1,25 @@
-import {
-  filtrar,
-  ordemNomes,
-  buscarNome,
-  chocarOvo
-} from "./data.js";
+import { filtrar, ordemNomes, buscarNome, chocarOvo } from "./data.js";
 import data from "./data/pokemon/pokemon.js";
 
 const arrayPokemon = data["pokemon"];
-card(arrayPokemon);
+const campoBusca = document.querySelector("#campo-busca");
+const campoFiltro = document.querySelector(".filtrar-pokemon");
+const campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
+const botaoLimparFiltro = document.querySelector("#botao-limpar");
+const botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
+const section = document.querySelector("#pokemons");
+const divModal = document.querySelector(".modal");
+
 
 let modal = document.getElementById("myModal");
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
-let campoBusca = document.querySelector("#campo-busca");
 campoBusca.addEventListener("input", function Buscado() {
-  let campoBuscado = document.querySelector("#campo-busca").value;
+  let campoBuscado = campoBusca.value;
   campoBuscado = campoBuscado
     .substring(0, 1)
     .toUpperCase()
@@ -26,71 +27,95 @@ campoBusca.addEventListener("input", function Buscado() {
   card(buscarNome(campoBuscado, arrayPokemon));
 });
 
-let campoFiltro = document.querySelector(".filtrar-pokemon");
 campoFiltro.addEventListener("input", function filtrados() {
   card(filtrar(campoFiltro.value, arrayPokemon));
 });
 
-let campoOrdem = document.querySelector("#campo-ordenacao-pokemon");
 campoOrdem.addEventListener("input", function () {
   card(ordemNomes(campoOrdem.value, arrayPokemon));
 });
 
-let botaoLimparFiltro = document.querySelector("#botao-limpar");
 botaoLimparFiltro.addEventListener("click", function () {
-  limpaCampo('.filtrar-pokemon')
+  limpaCampo(".filtrar-pokemon");
 });
 
-let botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
 botaoLimparOrdem.addEventListener("click", function () {
-  limpaCampo('#campo-ordenacao-pokemon')
+  limpaCampo("#campo-ordenacao-pokemon");
 });
 
-function card(array) {
-  const ul = document.querySelector("#lista-pokemon");
-  ul.innerHTML = " ";
+const tipos = (array) => {
+  let listaTipo = "";
+  array.forEach((tipoPokemon) => {
+    listaTipo += `
+   <tipo class=${tipoPokemon}>${tipoPokemon}
+    </tipo>
+    `;
+  });
+  return listaTipo;
+};
 
-  for (let i = 0; i < array.length; i++) {
-    let dadoImagem = array[i].img;
-    let dadoNome = array[i].name;
-    let dadoTipo = array[i].type;
-    let dadoNum = array[i].num;
+const card = (array) => {
+  let ul = document.createElement("ul");
+  ul.classList.add("lista-pokedex");
 
-    let li = document.createElement("li");
-    li.id = "pokemon." + dadoNum;
-    li.classList.add("lista-pokedex-link");
-    li.innerHTML += "<h4>" + dadoNome + "</h4>";
-    ul.appendChild(li);
+  array.forEach((element) => {
+    ul.innerHTML += `
+   <li id="pokemon."${element.num} class="lista-pokedex-link">
+    <h4>${element.name}</h4>
+    <p class="lista-num">${element.num}</p>
+    <img class="lista-img" src=${element.img}>
+    <tipo class="lista-tipo">
+    ${tipos(element.type)}
+    </tipo>
+   </li>
+  `;
+    section.appendChild(ul);
 
-    let num = document.createElement("p");
-    num.classList.add("lista-num");
-    num.textContent += dadoNum;
-    li.appendChild(num);
+    const lista = document.querySelector("li");
+    lista.addEventListener("click", () => modalCard(element));
+  });
+};
 
-    let img = document.createElement("img");
-    img.classList.add("lista-img");
-    img.src += dadoImagem;
-    li.appendChild(img);
+card(arrayPokemon);
 
-    let tipo = document.createElement("tipo");
-    tipo.classList.add("lista-tipo");
-    li.appendChild(tipo);
+const modalCard = (element) => {
+  let divPai = document.createElement("div");
+  divPai.classList.add(".modal-content");
 
-    dadoTipo.forEach(tipoPokemon => {
-      const infoTipo = document.createElement("tipo");
-      infoTipo.classList = (tipoPokemon);
-      infoTipo.textContent = tipoPokemon;
-      tipo.appendChild(infoTipo);
-    });
-    li.addEventListener("click", () => modalCard(array[i]));
-  }
-}
+  divPai.innerHTML = `
+ <div class="lista-info">
+  <span class="close">X</span>
+  <p class="lista-info-height">
+   <h4>Altura:</h4>${element.height}
+  </p>
+  <p class="lista-info-weight">
+   <h4>Peso:</h4>${element.weight}
+  </p>
+  <p class="lista-info-egg">
+   <h4>${element.egg}</h4>
+  </p>
+  <p class="lista-info-fraqueza">
+   <h4>Fraqueza:</h4>${element.weaknesses}
+  </p>
+  <p class="lista-info-evolution">
+   <h4>Próxima evolução:</h4>
+  </p>
+  <div class="divImg">
+   <img class="lista-info-img" src=${element.img}>
+   <p class="lista-info-num"><h4>${element.num}</h4></p>
+   <p class="lista-info-nome"><h4>${element.name}</h4></p>
+  </div>
+ </div>
+  `;
 
-function modalCard(element) {
-  let divPai = document.querySelector(".modal-content");
-  divPai.innerHTML = "";
+  divModal.appendChild(divPai);
+  const botaoFechar = document.querySelector(".close");
+  botaoFechar.onclick = function () {
+    modal.style.display = "none";
+  };
+   modal.style.display = "block";
 
-  let div = document.createElement("div");
+  /* let div = document.createElement("div");
   div.classList.add("lista-info");
   divPai.appendChild(div);
 
@@ -143,7 +168,12 @@ function modalCard(element) {
   } else {
     let egg = document.createElement("p");
     let eggKm = element.egg.replace("km", "");
-    egg.innerHTML = "<h4>" + "Uma pessoa andando 5km/h vai demorar:  " + "</h4>" + chocarOvo(eggKm) + " min para chocar o ovo";
+    egg.innerHTML =
+      "<h4>" +
+      "Uma pessoa andando 5km/h vai demorar:  " +
+      "</h4>" +
+      chocarOvo(eggKm) +
+      " min para chocar o ovo";
     egg.classList.add("lista-info-egg");
     div.appendChild(egg);
   }
@@ -153,9 +183,9 @@ function modalCard(element) {
   pFraqueza.innerHTML = "<h4>" + "Fraqueza" + "</h4>";
   div.appendChild(pFraqueza);
 
-  element.weaknesses.forEach(fraqueza => {
+  element.weaknesses.forEach((fraqueza) => {
     const infoFraqueza = document.createElement("tipo");
-    infoFraqueza.classList = (fraqueza);
+    infoFraqueza.classList = fraqueza;
     infoFraqueza.textContent = fraqueza;
     pFraqueza.appendChild(infoFraqueza);
   });
@@ -170,10 +200,10 @@ function modalCard(element) {
   pEvolution.appendChild(divEvolution);
 
   if (!element.next_evolution == 0) {
-    const arrayNextEvolution = element.next_evolution.map(next => next.name);
-    arrayNextEvolution.forEach(item => {
+    const arrayNextEvolution = element.next_evolution.map((next) => next.name);
+    arrayNextEvolution.forEach((item) => {
       let buscarImg = buscarNome(item, arrayPokemon);
-      let buscarImgArray = buscarImg.find(itemArray => itemArray.img);
+      let buscarImgArray = buscarImg.find((itemArray) => itemArray.img);
       let evolutionImg = document.createElement("img");
       let evolution = document.createElement("p");
       evolutionImg.classList.add("lista-evolution-img");
@@ -182,22 +212,18 @@ function modalCard(element) {
       evolution.classList.add("lista-evolution-nome");
       evolution.appendChild(evolutionImg);
       divEvolution.appendChild(evolution);
-    })
+    });
   } else {
     const evolution = document.createElement("p");
     evolution.innerHTML = "Este Pokémon não evolui";
     evolution.classList.add("lista-info-evolution");
     div.appendChild(evolution);
   }
-  botaoFechar = document.querySelector(".close");
-  botaoFechar.onclick = function () {
-    modal.style.display = "none";
-  }
-  modal.style.display = "block";
-}
+  */
+};
 
 function limpaCampo(selector) {
   const campo = document.querySelector(selector);
-  campo.value = ""
+  campo.value = "";
   card(arrayPokemon);
 }

@@ -10,7 +10,6 @@ const botaoLimparOrdem = document.querySelector("#limpar-ordem-pokemon");
 const section = document.querySelector("#pokemons");
 const divModal = document.querySelector(".modal");
 
-
 let modal = document.getElementById("myModal");
 window.onclick = function (event) {
   if (event.target == modal) {
@@ -43,6 +42,12 @@ botaoLimparOrdem.addEventListener("click", function () {
   limpaCampo("#campo-ordenacao-pokemon");
 });
 
+const limpaCampo = (selector) => {
+  const campo = document.querySelector(selector);
+  campo.value = "";
+  card(arrayPokemon);
+};
+
 const tipos = (array) => {
   let listaTipo = "";
   array.forEach((tipoPokemon) => {
@@ -52,6 +57,52 @@ const tipos = (array) => {
     `;
   });
   return listaTipo;
+};
+
+const candy = (element) => {
+  let doce = "";
+  if (!element.candy_count == 0) {
+    doce = `
+     <p class="lista-info-candy">
+     <h4>Candy count: </h4>${element.candy_count}
+     </p>
+     `;
+  }
+  return doce;
+};
+
+const ovo = (element) => {
+  let msg = "";
+  if (element.egg == "Not in Eggs") {
+    msg = "Não há ovos para serem chocados";
+  } else {
+    let eggKm = element.egg.replace("km", "");
+    msg = `
+        Uma pessoa andando 5km/h vai demorar: ${chocarOvo(
+          eggKm
+        )} min para chocar o ovo 
+        `;
+  }
+  return msg;
+};
+
+const evolution = (element) => {
+  let templateEvolution = "";
+  if (!element.next_evolution == 0) {
+    const arrayNextEvolution = element.next_evolution.map((next) => next.name);
+    arrayNextEvolution.forEach((item) => {
+      let buscarImg = buscarNome(item, arrayPokemon);
+      let buscarImgArray = buscarImg.find((itemArray) => itemArray.img);
+
+      templateEvolution = `
+        <p class="lista-evolution-nome"><h4>${item}</h4></p>
+        <img class="lista-evolution-img" src=${buscarImgArray.img}>
+        `;
+    });
+  } else {
+    templateEvolution = `<p class="lista-info-evolution">Este Pokémon não evolui</p>`;
+  }
+  return templateEvolution;
 };
 
 const card = (array) => {
@@ -71,41 +122,46 @@ const card = (array) => {
   `;
     section.appendChild(ul);
 
-    const lista = document.querySelector("li");
+    const lista = document.querySelector(".lista-pokedex-link");
     lista.addEventListener("click", () => modalCard(element));
   });
 };
 
-card(arrayPokemon);
-
 const modalCard = (element) => {
   let divPai = document.createElement("div");
-  divPai.classList.add(".modal-content");
+  divPai.classList.add("modal-content");
 
   divPai.innerHTML = `
- <div class="lista-info">
+  
+   <div class="lista-info">
   <span class="close">X</span>
-  <p class="lista-info-height">
+  <div class="lista-info-height">
    <h4>Altura:</h4>${element.height}
-  </p>
-  <p class="lista-info-weight">
+  </div>
+  <div class="lista-info-weight">
    <h4>Peso:</h4>${element.weight}
-  </p>
-  <p class="lista-info-egg">
-   <h4>${element.egg}</h4>
-  </p>
-  <p class="lista-info-fraqueza">
-   <h4>Fraqueza:</h4>${element.weaknesses}
-  </p>
-  <p class="lista-info-evolution">
+  </div>
+  ${candy(element)}
+  <div class="lista-info-egg">
+   <h4>${ovo(element)}</h4>
+  </div>
+  <div class="lista-info-fraqueza">
+   <h4>Fraqueza:</h4>
+   ${tipos(element.weaknesses)}
+  </div>
+  <div class="lista-info-evolution">
    <h4>Próxima evolução:</h4>
-  </p>
-  <div class="divImg">
+   <div class="lista-evolution">
+   ${evolution(element)}
+   </div>
+  </div>
+ </div>
+ <div class="divImg">
    <img class="lista-info-img" src=${element.img}>
    <p class="lista-info-num"><h4>${element.num}</h4></p>
    <p class="lista-info-nome"><h4>${element.name}</h4></p>
   </div>
- </div>
+ 
   `;
 
   divModal.appendChild(divPai);
@@ -113,117 +169,7 @@ const modalCard = (element) => {
   botaoFechar.onclick = function () {
     modal.style.display = "none";
   };
-   modal.style.display = "block";
-
-  /* let div = document.createElement("div");
-  div.classList.add("lista-info");
-  divPai.appendChild(div);
-
-  let divImg = document.createElement("div");
-  divImg.classList.add("divImg");
-  divPai.appendChild(divImg);
-
-  let botaoFechar = document.createElement("span");
-  botaoFechar.textContent = "X";
-  botaoFechar.classList.add("close");
-  div.appendChild(botaoFechar);
-
-  let img = document.createElement("img");
-  img.classList.add("lista-info-img");
-  img.src = element.img;
-  divImg.appendChild(img);
-
-  let num = document.createElement("p");
-  num.innerHTML = "<h4>" + element.num + "</h4>";
-  num.classList.add("lista-info-num");
-  divImg.appendChild(num);
-
-  let nome = document.createElement("p");
-  nome.innerHTML = "<h4>" + element.name + "</h4>";
-  nome.classList.add("lista-info-nome");
-  divImg.appendChild(nome);
-
-  let height = document.createElement("p");
-  height.innerHTML = "<h4>" + "Height: " + "</h4>" + element.height;
-  height.classList.add("lista-info-height");
-  div.appendChild(height);
-
-  let weight = document.createElement("p");
-  weight.innerHTML = "<h4>" + "Weight: " + "</h4>" + element.weight;
-  weight.classList.add("lista-info-weight");
-  div.appendChild(weight);
-
-  if (!element.candy_count == 0) {
-    let candy = document.createElement("p");
-    candy.innerHTML = "<h4>" + "Candy count: " + "</h4>" + element.candy_count;
-    candy.classList.add("lista-info-candy");
-    div.appendChild(candy);
-  }
-
-  if (element.egg == "Not in Eggs") {
-    let egg = document.createElement("p");
-    egg.innerHTML = "<h4>" + "Não há ovos para serem chocados" + "</h4>";
-    egg.classList.add("lista-info-egg");
-    div.appendChild(egg);
-  } else {
-    let egg = document.createElement("p");
-    let eggKm = element.egg.replace("km", "");
-    egg.innerHTML =
-      "<h4>" +
-      "Uma pessoa andando 5km/h vai demorar:  " +
-      "</h4>" +
-      chocarOvo(eggKm) +
-      " min para chocar o ovo";
-    egg.classList.add("lista-info-egg");
-    div.appendChild(egg);
-  }
-
-  let pFraqueza = document.createElement("p");
-  pFraqueza.classList.add("lista-info-fraqueza");
-  pFraqueza.innerHTML = "<h4>" + "Fraqueza" + "</h4>";
-  div.appendChild(pFraqueza);
-
-  element.weaknesses.forEach((fraqueza) => {
-    const infoFraqueza = document.createElement("tipo");
-    infoFraqueza.classList = fraqueza;
-    infoFraqueza.textContent = fraqueza;
-    pFraqueza.appendChild(infoFraqueza);
-  });
-
-  let pEvolution = document.createElement("p");
-  pEvolution.innerHTML = "<h4>" + "Próxima evolução:" + "</h4>";
-  pEvolution.classList.add("lista-info-evolution");
-  div.appendChild(pEvolution);
-
-  let divEvolution = document.createElement("div");
-  divEvolution.classList.add("lista-evolution");
-  pEvolution.appendChild(divEvolution);
-
-  if (!element.next_evolution == 0) {
-    const arrayNextEvolution = element.next_evolution.map((next) => next.name);
-    arrayNextEvolution.forEach((item) => {
-      let buscarImg = buscarNome(item, arrayPokemon);
-      let buscarImgArray = buscarImg.find((itemArray) => itemArray.img);
-      let evolutionImg = document.createElement("img");
-      let evolution = document.createElement("p");
-      evolutionImg.classList.add("lista-evolution-img");
-      evolutionImg.src = buscarImgArray.img;
-      evolution.innerHTML = "<h4>" + item + "</h4>";
-      evolution.classList.add("lista-evolution-nome");
-      evolution.appendChild(evolutionImg);
-      divEvolution.appendChild(evolution);
-    });
-  } else {
-    const evolution = document.createElement("p");
-    evolution.innerHTML = "Este Pokémon não evolui";
-    evolution.classList.add("lista-info-evolution");
-    div.appendChild(evolution);
-  }
-  */
+  modal.style.display = "block";
 };
 
-function limpaCampo(selector) {
-  const campo = document.querySelector(selector);
-  campo.value = "";
-  card(arrayPokemon);
-}
+card(arrayPokemon);

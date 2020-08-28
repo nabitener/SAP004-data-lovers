@@ -252,18 +252,20 @@
 }
 
 .lista-info-evolution {
-  width: 100%;
   margin-top: 0.5em;
 }
 
 .lista-evolution {
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
 }
 
 .lista-evolution-nome {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
+  padding: 10px;
 }
 
 .close {

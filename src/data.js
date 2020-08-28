@@ -1,14 +1,14 @@
-export function filtrar(campo, array) {
+export const filtrar = (campo, array) => {
   const filtrado = array.filter((item) => item.type.includes(campo))
   return filtrado;
 }
 
-export function buscarNome(campo, array) {
+export const buscarNome = (campo, array) => {
   const buscado = array.filter((item) => item.name.includes(campo))
   return buscado;
 }
 
-export function ordemNomes(campo, array) {
+export const ordemNomes = (campo, array) => {
   const novoArray = [...array];
   const opcao = novoArray.sort(function (a, b) {
     if (a.name > b.name) {
@@ -24,6 +24,6 @@ export function ordemNomes(campo, array) {
   }
 }
 
-export function chocarOvo(km) {
+export const chocarOvo = (km) => {
   return (km / 5) * 60
 }

@@ -63,9 +63,9 @@ const candy = (element) => {
   let doce = "";
   if (!element.candy_count == 0) {
     doce = `
-     <p class="lista-info-candy">
+     <div class="lista-info-candy">
      <h4>Candy count: </h4>${element.candy_count}
-     </p>
+     </div>
      `;
   }
   return doce;
@@ -95,7 +95,7 @@ const evolution = (element) => {
       let buscarImgArray = buscarImg.find((itemArray) => itemArray.img);
 
       templateEvolution = `
-        <p class="lista-evolution-nome"><h4>${item}</h4></p>
+        <div class="lista-evolution-nome"><h4>${item}</h4></div>
         <img class="lista-evolution-img" src=${buscarImgArray.img}>
         `;
     });
@@ -122,8 +122,10 @@ const card = (array) => {
   `;
     section.appendChild(ul);
 
-    const lista = document.querySelector(".lista-pokedex-link");
-    lista.addEventListener("click", () => modalCard(element));
+    const info = document.querySelector(".lista-pokedex-link");
+    info.onclick = () => {
+      modalCard(element);
+    };
   });
 };
 
@@ -133,40 +135,43 @@ const modalCard = (element) => {
 
   divPai.innerHTML = `
   
-   <div class="lista-info">
+  <section class="lista-info">
   <span class="close">X</span>
   <div class="lista-info-height">
-   <h4>Altura:</h4>${element.height}
+    <h4>Altura:</h4>${element.height}
   </div>
   <div class="lista-info-weight">
-   <h4>Peso:</h4>${element.weight}
+    <h4>Peso:</h4>${element.weight}
   </div>
   ${candy(element)}
   <div class="lista-info-egg">
-   <h4>${ovo(element)}</h4>
+    <h4>${ovo(element)}</h4>
   </div>
   <div class="lista-info-fraqueza">
-   <h4>Fraqueza:</h4>
-   ${tipos(element.weaknesses)}
+    <h4>Fraqueza:</h4>
+    ${tipos(element.weaknesses)}
   </div>
   <div class="lista-info-evolution">
-   <h4>Próxima evolução:</h4>
-   <div class="lista-evolution">
-   ${evolution(element)}
-   </div>
+    <h4>Próxima evolução:</h4>
+    <div class="lista-evolution">
+      ${evolution(element)}
+    </div>
   </div>
- </div>
- <div class="divImg">
-   <img class="lista-info-img" src=${element.img}>
-   <p class="lista-info-num"><h4>${element.num}</h4></p>
-   <p class="lista-info-nome"><h4>${element.name}</h4></p>
-  </div>
- 
+</section>
+<section class="divImg">
+  <img class="lista-info-img" src=${element.img}>
+  <p class="lista-info-num">
+  <h4>${element.num}</h4>
+  </p>
+  <p class="lista-info-nome">
+  <h4>${element.name}</h4>
+  </p>
+</section>
   `;
 
   divModal.appendChild(divPai);
   const botaoFechar = document.querySelector(".close");
-  botaoFechar.onclick = function () {
+  botaoFechar.onclick = () => {
     modal.style.display = "none";
   };
   modal.style.display = "block";

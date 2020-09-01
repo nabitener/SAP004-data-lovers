@@ -109,9 +109,9 @@ const card = (array) => {
   let ul = document.createElement("ul");
   ul.classList.add("lista-pokedex");
 
-  array.forEach((element) => {
+  array.forEach((element, index) => {
     ul.innerHTML += `
-   <li id="pokemon."${element.num} class="lista-pokedex-link">
+   <li id="pokemon."${element.num} class="lista-pokedex-link" data-id="${index}">
     <h4>${element.name}</h4>
     <p class="lista-num">${element.num}</p>
     <img class="lista-img" src=${element.img}>
@@ -122,11 +122,13 @@ const card = (array) => {
   `;
     section.appendChild(ul);
 
-    const info = document.querySelector(".lista-pokedex-link");
-    info.onclick = () => {
-      modalCard(element);
-    };
   });
+  const info = document.querySelectorAll(".lista-pokedex-link");
+  info.forEach(item => {
+    item.addEventListener("click", () => {
+      modalCard(array[item.dataset.id])
+    });
+  })
 };
 
 const modalCard = (element) => {
@@ -169,6 +171,7 @@ const modalCard = (element) => {
 </section>
   `;
 
+  divModal.innerHTML = "";
   divModal.appendChild(divPai);
   const botaoFechar = document.querySelector(".close");
   botaoFechar.onclick = () => {
